@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="m-5 py-2">
+    <div class='bg-secondary text-white p-4'>
+
+         <!-- On tables -->
+         <div class="table-title">
+            <h3>History</h3>
+            </div>
+            <table class="table-fill">
+            <thead>
+            <tr>
+            <th class="text-left">Account <br/> Name</th>
+            <th class="text-left"></th>
+            {% comment %} <th class="text-left">Amount</th> {% endcomment %}
+            <th class="text-left">Account <br/> Number</th>
+
+            </tr>
+            </thead>
+            <tbody class="table-hover">
+            <tr>
+            <td class="text-left">Lori</td>
+            <td class="text-left">Johnson</td>
+            {% comment %} <td class="text-left">$ 50,000.00</td> {% endcomment %}
+            <td class="text-left">2574872293103</td>
+            </tr>
+
+            <tr>
+                <td class="text-left bold">Amount Invested</td>
+                <td class="text-left bold"></td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                <td class="text-left  bold">Year</td>
+            </tr>
+
+            <tr>
+                <td class="text-left">USD,2,709,001</td>
+                <td class="text-left"></td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                <td class="text-left ">2017</td>
+            </tr>
+           
+
+            <tr>
+                <td class="text-left bold">Accumulated Interest</td>
+                <td class="text-left bold"></td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                <td class="text-left text-success bold"></td>
+            </tr>
+
+            <tr>
+                <td class="text-left">USD,10,450,825.79</td>
+                <td class="text-left"></td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                <td class="text-left text-success"></td>
+            </tr>
+
+            <tr>
+            <td class="text-left bold">Routing #</td>
+            <td class="text-left bold">Balance</td>
+            {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+            <td class="text-left text-success bold">Avail. Balance</td>
+            </tr>
+
+            <tr>
+                <td class="text-left">272484894</td>
+                <td class="text-left">USD,13,159,801.09</td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                <td class="text-left text-success">USD,13,159,801.09</td>
+            </tr>
+
+            <tr>
+                <td class="text-left bold">Date</td>
+                <td class="text-left bold">Description</td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                {% comment %} <td class="text-left text-success">USD3,587,345.00</td> {% endcomment %}
+                </tr>
+
+                <tr>
+                    <td class="text-left">2024-03-26 <br/> 19:30:57</td>
+                    <td class="text-left">Hold</td>
+                    {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                    {% comment %} <td class="text-left text-success">USD3,587,345.00</td> {% endcomment %}
+                    </tr>
+            
+            
+            </tbody>
+            </table>
+              
+            
+
+</div>
+</div>
+{% endblock content %}
+
+

@@ -1,0 +1,15 @@
+{% comment %} {%extends 'base.html'%} {% endcomment %}
+{%load static%}
+{%block content%}
+<head>
+    <link href="{%static 'css/register.css'%}" rel="stylesheet" />
+</head>
+<div class="login">
+	<h1>Resgister Here</h1>
+    <form method="post">
+        {% csrf_token %}
+    	{{ form.as_p }}
+        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+    </form>
+</div>
+{%endblock content%}

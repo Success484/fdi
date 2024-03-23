@@ -1,0 +1,282 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+  <title>FID Banking</title>
+
+  <!-- bootstrap core css -->
+
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.css'%}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{%static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{%static 'css/responsive.css'%}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <div class="hero_bg_box">
+      <div class="img-box">
+        <img src="{%static 'images/Header.jpeg'%}" quality={100} alt="">
+      </div>
+    </div>
+
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid">
+          <div class="contact_link-container">
+            <a href="" class="contact_link1">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                uk, london
+              </span>
+            </a>
+            <a href="" class="contact_link2">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : +01 1564568890
+              </span>
+            </a>
+            <a href="" class="contact_link3">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                fdibank@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="{%url 'home' %}">
+              <span>
+                FDI Banking
+              </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{%url 'home'%}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url "about"%}"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url "service"%}"> Services </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url "supervisors"%}"> Supervisors </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'contact'%}">Contact us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'profile'%}">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'history'%}">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'logout-confirm'%}">Logout</a>
+                </li>
+                {%else%}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{%url 'home'%}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url "about"%}"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url "service"%}"> Services </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url "supervisors"%}"> Supervisors </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'contact'%}">Contact us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'login'%}">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'register'%}">Register</a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+
+    <div class="col-md-8">
+      {%if messages%}
+        {%for message in messages%}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {%endfor%}
+      {%endif%}
+    </div>
+
+
+
+
+  {%block content%}
+  {%endblock content%}
+
+
+
+
+
+
+
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_logo">
+            <a class="navbar-brand" href="index.html">
+              <span>
+                FDI Banking
+              </span>
+            </a>
+            <p>
+              When you choose our bank, you're choosing a partner you can trust. Join us on the journey towards a brighter financial future.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              We Provide
+            </h5>
+            <ul>
+              <li>
+                <a href="">
+                  We prioritize security
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Customer-centric approach
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Financial stability
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Innovation and technology
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Contact Us
+            </h5>
+          </div>
+          <div class="info_contact">
+            <a href="" class="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                uk, london
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : +01 1564568890
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                fdibank@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="#">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section">
+    <p>
+      &copy; <span id="currentYear"></span> All Rights Reserved.
+      {% comment %} <a href="https://html.design/">Free Html Templates</a> {% endcomment %}
+    </p>
+  </footer>
+  <!-- footer section -->
+
+  <script src="{%static 'js/jquery-3.4.1.min.js'%}"></script>
+  <script src="https://kit.fontawesome.com/2ae773800d.js" crossorigin="anonymous"></script>
+  <script src="{%static 'js/bootstrap.js'%}"></script>
+  <script src="{%static 'js/custom.js'%}"></script>
+</body>
+
+</html>

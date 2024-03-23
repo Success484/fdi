@@ -1,0 +1,45 @@
+
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 px-0">
+          <div class="img_container">
+            <div class="img-box">
+              <img src="{%static 'images/about-us.jpeg'%}" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="detail-box">
+            <div class="heading_container ">
+              <h2>
+                Who Are We?
+              </h2>
+            </div>
+            <p>
+              Welcome to Guarder Bank, where we are committed to being your trusted financial partner.
+               At FDI Bank, we understand that each customer has unique financial goals and aspirations, 
+               and we are here to help you achieve them.
+              Our bank was founded on the principles of integrity, transparency,
+               and customer satisfaction. We believe in building lasting relationships with our
+                customers based on trust and mutual respect. 
+            </p>
+            <div class="btn-box">
+              <a href="">
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  {%endblock content%}

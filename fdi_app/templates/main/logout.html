@@ -1,0 +1,15 @@
+
+{%block content%}
+{%load static%}
+<head>
+    <link href="{%static 'css/register.css'%}" rel="stylesheet" />
+</head>
+<div class="login">
+<form  action="{%url 'logout'%}" method="post">
+    <h2 class="tm-color-primary tm-post-title mb-4">Are you sure you want to logout</h2>
+    {% csrf_token %}
+    <button type="submit" style="padding : 10px; padding-left: 20px; padding-right: 20px; color: red;">logout</button> 
+    <a href='{% url "home" %}' class='go_back'>Go back</a>
+</form>
+</div>
+{%endblock content%}
