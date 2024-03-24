@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fdi_app.apps.FdiAppConfig',
     'crispy_forms', 
-    'crispy_bootstrap5', # add this
+    'crispy_bootstrap5', 
 ]
 
 MIDDLEWARE = [
