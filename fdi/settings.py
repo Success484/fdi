@@ -86,7 +86,7 @@ DATABASES = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
-ALLOWED_HOSTS = ['fdi.onrender.com/', 'localhost']
+ALLOWED_HOSTS = ['fdi.onrender.com', 'localhost']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
