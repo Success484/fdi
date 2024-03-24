@@ -134,7 +134,7 @@ STATIC_URL = '/static/'
 
 # Define the directories where Django will look for static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'fdi_app', 'static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 # Define the directory where 'collectstatic' will copy static files during deployment
