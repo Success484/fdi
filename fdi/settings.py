@@ -129,15 +129,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
+# Define the URL prefix for static files
 STATIC_URL = '/static/'
 
 # Define the directories where Django will look for static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'your_app', 'static'),
 ]
 
 # Define the directory where 'collectstatic' will copy static files during deployment
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
