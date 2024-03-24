@@ -35,10 +35,12 @@ def Guard(request):
 #     return render(request, 'main/register.html', {'form': form})
 
 
-
+@login_required
 def Logout_Confirm(request):
     return render(request, 'main/logout.html')
 
+
+@login_required
 def history(request):
     return render(request, 'main/history.html')
 
