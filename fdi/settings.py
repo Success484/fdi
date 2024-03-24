@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fdi_app.apps.FdiAppConfig',
-    'crispy_forms', # add this
+    'crispy_forms', 
     'crispy_bootstrap5', # add this
 ]
 
