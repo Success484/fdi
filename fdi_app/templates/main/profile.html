@@ -6,29 +6,28 @@
 
 <div class="">
     <div class='bg-secondary text-white p-1'>
-        {% comment %} <div class="content-section">
-            <div id="flex_image">
-                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+         <div class="content-section">
+            {% comment %} <div id="flex_image">
                 <div class="media-body">
                     <h2 class="account-heading">{{ user.username }}</h2>
                     <p class="account-heading">{{ user.email }}</p>
                     <h2 class="mt-3">Account Balance</h2>
                     <h2 class="money" style="font-size: 20px; padding: 10px; border-radius: 8px; background-color:white; color:green; width:250px">USD, $13,159,801.09</h2>
                 </div>
-            </div>
+            </div> {% endcomment %}
             
               <form action="." method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <fieldset class="form-group">
                     <legend class="border-bottom mb-4">Profile Info</legend>
-                    {{ u_form | crispy }}
+                    {% comment %} {{ u_form | crispy }} {% endcomment %}
                     {{ p_form | crispy }}
                 </fieldset>
                 <div class="form-group">
                     <button class="btn btn-outline-info text-white border-white" type="submit">Update</button>
                 </div>
               </form>
-          </div> {% endcomment %}
+          </div> 
 
           <!-- On tables -->
           <div class="table-title">
@@ -39,7 +38,7 @@
             
                 <tr class="table-flex" style="background-color: black;"> 
                     <th class="text-left" style="color: #dedede; padding: 20px;  font-size: 20px;  font-weight: 0px;">Personal accounts</th>
-                    <th class="text-left"><i class="fa-solid fa-user fa-2xl" style="color: #dedede; padding: 20px;"></i></th>
+                    <th class="text-left"><img class="rounded-circle account-img" style="height:90px; width:100px" src="{{ user.profile.image.url }}"></th>
                 <tr>
 
             <th class="text-left">Account  Name</th>
