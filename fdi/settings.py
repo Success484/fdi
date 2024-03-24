@@ -51,7 +51,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+
 
 ROOT_URLCONF = 'fdi.urls'
 
@@ -139,6 +142,11 @@ STATICFILES_DIRS = [
 
 # Define the directory where 'collectstatic' will copy static files during deployment
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+WHITENOISE_AUTOREFRESH = True
+WHITENOISE_ROOT = STATIC_ROOT
 
 
 # Default primary key field type
