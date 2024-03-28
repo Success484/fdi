@@ -49,8 +49,13 @@
             </thead>
             <tbody class="table-hover">
             <tr>
-            <td class="text-left">Helena</td> 
-            <td class="text-left">Castle</td>
+                {% if request.user.username == "Helenacastle" %}
+                <td class="text-left">Helena</td> 
+                <td class="text-left">Castle</td>
+            {% else %}
+                <td class="text-left">{{ request.user.username }}</td> 
+                <td class="text-left">{{ request.user.username }}</td>
+            {% endif %}
             {% comment %} <td class="text-left">$ 50,000.00</td> {% endcomment %}
             <td class="text-left">2574872293103</td>
             </tr>
