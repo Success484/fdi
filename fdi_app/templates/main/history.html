@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+{%if request.user.is_superuser%}
 
 <div class="">
     <div class='bg-secondary text-white p-1'>
@@ -14,18 +15,18 @@
             <table class="table-fill">
             <thead>
             <tr>
-            <th class="text-left">Account <br/> Name</th>
-            <th class="text-left"></th>
+                <th class="text-left">Account <br/> Name</th>
+                <th class="text-left"></th>
             {% comment %} <th class="text-left">Amount</th> {% endcomment %}
             <th class="text-left">Account <br/> Number</th>
 
             </tr>
             </thead>
             <tbody class="table-hover">
-            <tr>
-            {% if request.user.username == "Helenacastle" %}
-                <td class="text-left">Helena</td> 
-                <td class="text-left">Castle</td>
+                <tr>
+                    {% if request.user.username == "Helenacastle" %}
+                    <td class="text-left">Helena</td> 
+                    <td class="text-left">Castle</td>
             {% else %}
                 <td class="text-left">{{ request.user.username }}</td> 
                 <td class="text-left">{{ request.user.username }}</td>
@@ -33,7 +34,7 @@
             {% comment %} <td class="text-left">$ 50,000.00</td> {% endcomment %}
             <td class="text-left">2574872293103</td>
             </tr>
-
+            
             <tr>
                 <td class="text-left bold">Amount Invested</td>
                 <td class="text-left bold"></td>
@@ -48,32 +49,32 @@
                 <td class="text-left ">2017</td>
             </tr>
            
-
+            
             <tr>
                 <td class="text-left bold">Accumulated Interest</td>
                 <td class="text-left bold"></td>
                 {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
                 <td class="text-left text-success bold"></td>
             </tr>
-
+            
             <tr>
                 <td class="text-left">USD,10,450,825.79</td>
                 <td class="text-left"></td>
                 {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
                 <td class="text-left text-success"></td>
             </tr>
-
+            
             <tr>
             <td class="text-left bold">Routing #</td>
             <td class="text-left bold">Balance</td>
             {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
             <td class="text-left text-success bold">Avail. Balance</td>
-            </tr>
+        </tr>
 
-            <tr>
-                <td class="text-left">272484894</td>
-                <td class="text-left">USD,13,159,801.09</td>
-                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+        <tr>
+            <td class="text-left">272484894</td>
+            <td class="text-left">USD,13,159,801.09</td>
+            {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
                 <td class="text-left text-success">USD,13,159,801.09</td>
             </tr>
 
@@ -81,24 +82,26 @@
                 <td class="text-left bold">Date</td>
                 <td class="text-left bold">Description</td>
                 {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
-          
-                </tr>
-
-                <tr>
-                    <td class="text-left">2024-03-27 <br/> 19:30:57</td>
-                    <td class="text-left">Hold</td>
-                    {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
-                    {% comment %} <td class="text-left text-success">USD3,587,345.00</td> {% endcomment %}
-                    </tr>
+                
+            </tr>
+            
+            <tr>
+                <td class="text-left">2024-03-27 <br/> 19:30:57</td>
+                <td class="text-left">Hold</td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                {% comment %} <td class="text-left text-success">USD3,587,345.00</td> {% endcomment %}
+            </tr>
             
             
-            </tbody>
-            </table>
+        </tbody>
+    </table>
               
             
-
+    
 </div>
 </div>
+{%else%}
+{%endif%}
 {% endblock content %}
 
 
