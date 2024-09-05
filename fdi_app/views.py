@@ -22,19 +22,6 @@ def Guard(request):
     return render(request, 'main/guard.html')
 
 
-
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = RegistrationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('login')  # Redirect to login page after successful registration
-#     else:
-#         form = RegistrationForm()
-#     return render(request, 'main/register.html', {'form': form})
-
-
 @login_required
 def Logout_Confirm(request):
     return render(request, 'main/logout.html')
