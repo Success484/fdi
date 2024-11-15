@@ -14,5 +14,5 @@ urlpatterns = [
     path('fdi/logout/', LogoutView.as_view(template_name='main/logout.html'), name='logout'),
     path('fdi/personal/profile/', profile, name="profile"),
     path('fdi/personal/profile/history', history, name="history"),
-
+    path('fdi/personal/profile/transfer/', transfer_money, name="transfer_money")
 ]

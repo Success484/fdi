@@ -18,6 +18,7 @@
 
   <!-- bootstrap core css -->
 
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.css'%}" />
 
   <!-- fonts style -->
@@ -265,10 +266,42 @@
   </footer>
   <!-- footer section -->
 
-  <script src="{%static 'js/jquery-3.4.1.min.js'%}"></script>
-  <script src="https://kit.fontawesome.com/2ae773800d.js" crossorigin="anonymous"></script>
-  <script src="{%static 'js/bootstrap.js'%}"></script>
-  <script src="{%static 'js/custom.js'%}"></script>
+  <!-- Load jQuery (Use only one version) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Load jQuery UI -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+<!-- Load Font Awesome -->
+<script src="https://kit.fontawesome.com/2ae773800d.js" crossorigin="anonymous"></script>
+
+<!-- Load Bootstrap -->
+<script src="{% static 'js/bootstrap.js' %}"></script>
+
+<!-- Load Custom JS -->
+<script src="{% static 'js/custom.js' %}"></script>
+
+<!-- Initialize jQuery UI Dialog -->
+<script>
+    $(document).ready(function() {
+    $("#dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        show: { effect: "fade", duration: 300 }, // Optional, for smooth appearance
+        hide: { effect: "fade", duration: 300 }, // Optional, for smooth closing
+        closeOnEscape: true,  // Ensure the Escape key can also close it
+        // buttons: {
+        //     "Exit": function() {
+        //         $(this).dialog("close");
+        //     }
+        // }
+    });
+    $("#open-dialog").click(function() {
+                $("#dialog").dialog("open");
+            });
+});
+</script>
+
 </body>
 
 </html>

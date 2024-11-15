@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserUpdateForm, ProfileUpdateForm, UserRegisterForm
+from .forms import UserUpdateForm, ProfileUpdateForm, UserRegisterForm, TranferForm
 from django.contrib.auth.decorators import login_required
 # from django.shortcuts import render, redirect
 # from .forms import RegistrationForm
@@ -58,5 +58,21 @@ def profile(request):
         p_form = ProfileUpdateForm(instance=request.user.profile)
     context = {
         'p_form' : p_form
+    }
+    return render(request, 'main/profile.html', context)
+
+
+@login_required
+def transfer_money(request):
+    if request.method == "POST":
+        form = TranferForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Money Transfered successfully')
+            return redirect('profile')
+    else:
+        form = TranferForm()
+    context = {
+        'form' : form
     }
     return render(request, 'main/profile.html', context)

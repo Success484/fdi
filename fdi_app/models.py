@@ -20,3 +20,11 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+class Tranfer(models.Model):
+    bank_name = models.CharField(max_length=100)
+    account_number = models.IntegerField()
+    amount = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.bank_name}{self.account_number}{self.amount}"
