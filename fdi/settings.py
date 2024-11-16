@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%y7g)m07==3byzxaxv4@h$%g!hxlv4u(69#w-2ab!(rzy9p^nh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'fdi.onrender.com']
 
 
 # Application definition
@@ -89,7 +89,7 @@ DATABASES = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
-ALLOWED_HOSTS = ['fdi.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['localhost', 'fdi.onrender.com', '127.0.0.1']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -157,3 +157,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL='login'
 LOGIN_URL = 'login'
+
