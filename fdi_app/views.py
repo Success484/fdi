@@ -46,20 +46,20 @@ def register(request):
     return render(request, 'main/register.html', {'form': form})
 
 
-@login_required
-def profile(request):
-    if  request.method == 'POST':
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-        if p_form.is_valid():
-            p_form.save()
-            messages.success(request, f'Your account is updated')
-            return redirect('profile')
-    else:
-        p_form = ProfileUpdateForm(instance=request.user.profile)
-    context = {
-        'p_form' : p_form
-    }
-    return render(request, 'main/profile.html', context)
+# @login_required
+# def profile(request):
+#     if  request.method == 'POST':
+#         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+#         if p_form.is_valid():
+#             p_form.save()
+#             messages.success(request, f'Your account is updated')
+#             return redirect('profile')
+#     else:
+#         p_form = ProfileUpdateForm(instance=request.user.profile)
+#     context = {
+#         'p_form' : p_form
+#     }
+#     return render(request, 'main/profile.html', context)
 
 
 @login_required
@@ -68,11 +68,9 @@ def transfer_money(request):
         form = TranferForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Money Transfered successfully')
+            messages.success(request, 'Money Transferred successfully')
             return redirect('profile')
     else:
         form = TranferForm()
-    context = {
-        'form' : form
-    }
+    context = {'form': form}
     return render(request, 'main/profile.html', context)

@@ -29,6 +29,9 @@
   <!-- responsive style -->
   <link href="{%static 'css/responsive.css'%}" rel="stylesheet" />
 </head>
+{%url 'profile' as profile%}
+{%url 'home' as home%}
+{%url 'history' as history%}
 
 <body>
   <div class="hero_area">
@@ -79,7 +82,7 @@
             <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
               <ul class="navbar-nav">
                 {% if user.is_authenticated %}
-                <li class="nav-item active">
+                <li class="nav-item {%if request.path == home%} active {%else%}{%endif%}">
                   <a class="nav-link" href="{%url 'home'%}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -91,12 +94,12 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{%url 'contact'%}">Contact us</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {%if request.path == profile%} active {%else%}{%endif%}">
                   <a class="nav-link" href="{%url 'profile'%}">Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{%url 'history'%}">History</a>
-                </li>
+                  <a class="nav-link" href="{% url 'history' %}">History</a>
+              </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{%url 'logout-confirm'%}">Logout</a>
                 </li>
@@ -283,23 +286,47 @@
 
 <!-- Initialize jQuery UI Dialog -->
 <script>
-    $(document).ready(function() {
-    $("#dialog").dialog({
+  $(document).ready(function () {
+    // Initialize both dialogs
+    $("#transfer-dialog").dialog({
         autoOpen: false,
         modal: true,
-        show: { effect: "fade", duration: 300 }, // Optional, for smooth appearance
-        hide: { effect: "fade", duration: 300 }, // Optional, for smooth closing
-        closeOnEscape: true,  // Ensure the Escape key can also close it
-        // buttons: {
-        //     "Exit": function() {
-        //         $(this).dialog("close");
-        //     }
-        // }
+        width: 400,
+        show: { effect: "fade", duration: 300 },
+        hide: { effect: "fade", duration: 300 },
     });
-    $("#open-dialog").click(function() {
-                $("#dialog").dialog("open");
-            });
+
+    $("#confirm-dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        width: 400,
+        show: { effect: "fade", duration: 300 },
+        hide: { effect: "fade", duration: 300 },
+    });
+
+    // Open the transfer dialog
+    $("#open-dialog").click(function () {
+        $("#transfer-dialog").dialog("open");
+    });
+
+    // Show confirmation dialog on "Next"
+    $("#submitTransfer").click(function () {
+        $("#transfer-dialog").dialog("close");
+        $("#confirm-dialog").dialog("open");
+    });
+
+    // Confirm button: submit the form
+    $("#confirm-transfer").click(function () {
+        $("#transfer-form").submit();
+    });
+
+    // Cancel button: close the confirmation dialog
+    $("#cancel-transfer").click(function () {
+        $("#confirm-dialog").dialog("close");
+    });
 });
+
+
 </script>
 
 </body>

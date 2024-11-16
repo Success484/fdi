@@ -12,7 +12,7 @@ urlpatterns = [
     path('fdi/login/', LoginView.as_view(template_name='main/login.html'), name="login"),
     path('fdi/logout/confirm/', Logout_Confirm, name='logout-confirm'),
     path('fdi/logout/', LogoutView.as_view(template_name='main/logout.html'), name='logout'),
-    path('fdi/personal/profile/', profile, name="profile"),
+    path('fdi/personal/profile/', transfer_money, name="profile"),
     path('fdi/personal/profile/history', history, name="history"),
-    path('fdi/personal/profile/transfer/', transfer_money, name="transfer_money")
+    # path('fdi/personal/profile/transfer/', , name="transfer_money")
 ]

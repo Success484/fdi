@@ -22,9 +22,9 @@ class Profile(models.Model):
             img.save(self.image.path)
 
 class Tranfer(models.Model):
-    bank_name = models.CharField(max_length=100)
-    account_number = models.IntegerField()
-    amount = models.IntegerField()
+    bank_name = models.CharField(max_length=100, blank=False, null=False)
+    account_number = models.IntegerField(blank=False, null=False)
+    amount = models.IntegerField(blank=False, null=False)
 
     def __str__(self):
-        return f"{self.bank_name}{self.account_number}{self.amount}"
+        return f"{self.bank_name}, {self.account_number}, {self.amount}"

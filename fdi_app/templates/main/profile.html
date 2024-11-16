@@ -24,18 +24,33 @@
             
             </div> 
 
-            <div id="dialog" title="Transfer Money" style="display: none;">
-                <form action="">
-                    {%csrf_token%}
-                    <label for="" style="font-weight: bold; color: rgb(73, 73, 73);">Bank Name</label>
-                    <input type="text" style="margin-bottom: 20px;">
-                    <label for="" style="font-weight: bold; color: rgb(73, 73, 73);">Account Number</label>
-                    <input type="text" style="margin-bottom: 20px;">
-                    <label for="" style="font-weight: bold; color: rgb(73, 73, 73);">Amount to transfer</label>
-                    <input type="text">
-                    <button style="margin-top: 20px; border: none; padding: 5px 10px; color: green; background-color: rgb(240, 235, 235); border-radius: 8px; font-weight: bold;">Transfer</button>
-                </form>
-            </div>
+            <!-- Transfer Form Dialog -->
+<div id="transfer-dialog" title="Transfer Money" style="display: none;">
+    <form id="transfer-form" method="POST" action="{% url 'profile' %}">
+        {% csrf_token %}
+        
+        <label for="id_bank_name" style="font-weight: bold; color: rgb(73, 73, 73);">Bank Name</label><br>
+        {{ form.bank_name }}
+        <br><br>
+
+        <label for="id_account_number" style="font-weight: bold; color: rgb(73, 73, 73);">Account Number</label><br>
+        {{ form.account_number }}
+        <br><br>
+
+        <label for="id_amount" style="font-weight: bold; color: rgb(73, 73, 73);">Amount to Transfer</label><br>
+        {{ form.amount }}
+        <br><br>
+        <button type="button" id="submitTransfer" style="margin-top: 20px; border: none; padding: 5px 10px; color: white; background-color: green; border-radius: 8px; font-weight: bold;">Transfer Money</button>
+    </form>
+</div>
+
+<!-- Confirmation Dialog -->
+<div id="confirm-dialog" title="Confirm Transfer" style="display: none;">
+    <p>Are you sure you want to transfer the money?</p>
+    <button id="confirm-transfer" style="padding: 5px 10px; background-color: green; color: white; border: none; border-radius: 8px;">Confirm</button>
+    <button id="cancel-transfer" style="padding: 5px 10px; background-color: red; color: white; border: none; border-radius: 8px;">Cancel</button>
+</div>
+
 
           <!-- On tables -->
           <div class="table-title">
