@@ -26,22 +26,29 @@
 
             <!-- Transfer Form Dialog -->
 <div id="transfer-dialog" title="Transfer Money" style="display: none;">
-    <form id="transfer-form" method="POST" action="{% url 'profile' %}">
+    <form id="transfer-form" method="POST" action="{% url 'profile' %}" style="background-color: black; color: white; padding: 1rem; border-radius: 0.375rem;">
         {% csrf_token %}
         
-        <label for="id_bank_name" style="font-weight: bold; color: rgb(73, 73, 73);">Bank Name</label><br>
+        <label for="id_bank_name" style="display: block; font-weight: bold; color: white; margin-bottom: 0.5rem;">Bank Name</label>
         {{ form.bank_name }}
         <br><br>
-
-        <label for="id_account_number" style="font-weight: bold; color: rgb(73, 73, 73);">Account Number</label><br>
+    
+        <label for="id_account_number" style="display: block; font-weight: bold; color: white; margin-bottom: 0.5rem;">Account Number</label>
         {{ form.account_number }}
         <br><br>
-
-        <label for="id_amount" style="font-weight: bold; color: rgb(73, 73, 73);">Amount to Transfer</label><br>
+    
+        <label for="id_amount" style="display: block; font-weight: bold; color: white; margin-bottom: 0.5rem;">Amount to Transfer</label>
         {{ form.amount }}
         <br><br>
-        <button type="button" id="submitTransfer" style="margin-top: 20px; border: none; padding: 5px 10px; color: white; background-color: green; border-radius: 8px; font-weight: bold;">Transfer Money</button>
+    
+        <button 
+            type="button" 
+            id="submitTransfer" 
+            style="margin-top: 20px; border: none; padding: 10px 15px; color: white; background-color: green; border-radius: 8px; font-weight: bold;">
+            Transfer Money
+        </button>
     </form>
+    
 </div>
 
 <!-- Confirmation Dialog -->
@@ -76,11 +83,39 @@
                 <td class="text-left">Helena</td> 
                 <td class="text-left">Castle</td>
                 {% else %}
-                <td class="text-left">{{ request.user.username }}</td> 
-                <td class="text-left">{{ request.user.username }}</td>
+                <td class="text-left">{{request.user.first_name }}</td> 
+                <td class="text-left">{{ request.user.last_name }}</td>
                 {% endif %}
                 {% comment %} <td class="text-left">$ 50,000.00</td> {% endcomment %}
                 <td class="text-left">2574872293103</td>
+            </tr>
+
+            <tr>
+                <td class="text-left bold">Amount Invested</td>
+                <td class="text-left bold"></td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                <td class="text-left  bold">Year</td>
+            </tr>
+
+            <tr>
+                <td class="text-left">USD,2,709,001</td>
+                <td class="text-left"></td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                <td class="text-left ">2017</td>
+            </tr>
+
+            <tr>
+                <td class="text-left bold">Accumulated Interest</td>
+                <td class="text-left bold"></td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                <td class="text-left text-success bold"></td>
+            </tr>
+            
+            <tr>
+                <td class="text-left">USD,10,450,825.79</td>
+                <td class="text-left"></td>
+                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
+                <td class="text-left text-success"></td>
             </tr>
            
             <tr>

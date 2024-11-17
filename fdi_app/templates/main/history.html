@@ -28,68 +28,38 @@
                     <td class="text-left">Helena</td> 
                     <td class="text-left">Castle</td>
             {% else %}
-                <td class="text-left">{{ request.user.username }}</td> 
-                <td class="text-left">{{ request.user.username }}</td>
+                <td class="text-left">{{request.user.first_name }}</td> 
+                <td class="text-left">{{ request.user.last_name }}</td>
             {% endif %}
             {% comment %} <td class="text-left">$ 50,000.00</td> {% endcomment %}
             <td class="text-left">2574872293103</td>
             </tr>
-            
-            <tr>
-                <td class="text-left bold">Amount Invested</td>
-                <td class="text-left bold"></td>
-                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
-                <td class="text-left  bold">Year</td>
-            </tr>
 
             <tr>
-                <td class="text-left">USD,2,709,001</td>
-                <td class="text-left"></td>
-                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
-                <td class="text-left ">2017</td>
-            </tr>
-           
-            
-            <tr>
-                <td class="text-left bold">Accumulated Interest</td>
-                <td class="text-left bold"></td>
-                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
-                <td class="text-left text-success bold"></td>
-            </tr>
-            
-            <tr>
-                <td class="text-left">USD,10,450,825.79</td>
-                <td class="text-left"></td>
-                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
-                <td class="text-left text-success"></td>
-            </tr>
-            
-            <tr>
-            <td class="text-left bold">Routing #</td>
-            <td class="text-left bold">Balance</td>
-            {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
-            <td class="text-left text-success bold">Avail. Balance</td>
-        </tr>
-
-        <tr>
-            <td class="text-left">272484894</td>
-            <td class="text-left">USD,13,159,801.09</td>
-            {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
-                <td class="text-left text-success">USD,13,159,801.09</td>
-            </tr>
-
-            <tr>
-                <td class="text-left bold">Date</td>
-                <td class="text-left bold">Description</td>
+                <td class="text-left bold">Money transferred</td>
+                <td></td>
+                <td></td>
                 {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
                 
             </tr>
             
             <tr>
+                <td class="text-left text-success">$ 5,000.00</td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+
+            <tr>
+                <td class="text-left bold">Date</td>
+                <td class="text-left bold">Description</td>  
+                <td></td>              
+            </tr>
+            
+            <tr>
                 <td class="text-left">2024-09-06 <br/> 19:30:57</td>
-                <td class="text-left">Hold</td>
-                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
-                {% comment %} <td class="text-left text-success">USD3,587,345.00</td> {% endcomment %}
+                <td class="text-left" style="color: #2196F3;">Pending</td>
+                <td></td>
             </tr>
             
             
