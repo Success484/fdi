@@ -32,7 +32,16 @@
 {%url 'profile' as profile%}
 {%url 'home' as home%}
 {%url 'history' as history%}
-
+<style>
+  @keyframes spin {
+      from {
+          transform: rotate(0deg);
+      }
+      to {
+          transform: rotate(360deg);
+      }
+  }
+</style>
 <body>
   <div class="hero_area">
     <!-- header section strats -->
@@ -315,9 +324,15 @@
         $("#confirm-dialog").dialog("open");
     });
 
-    // Confirm button: submit the form
+
+    // Confirm button: Show the spinner, wait 3.5 seconds, and then submit the form
     $("#confirm-transfer").click(function () {
-        $("#transfer-form").submit();
+        $("#loading-spinner").show(); // Show the spinner
+        $("#confirmation-message").hide()
+        $("#confirm-transfer, #cancel-transfer").hide(); // Hide the buttons
+        setTimeout(function () {
+            $("#transfer-form").submit(); // Submit the form after 3.5 seconds
+        }, 4500);
     });
 
     // Cancel button: close the confirmation dialog

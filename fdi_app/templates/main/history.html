@@ -3,75 +3,63 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-{%if request.user.is_superuser%}
+{% if request.user.is_superuser %}
+<div class="bg-secondary text-white p-1">
+    <!-- Table Title -->
+    <div class="table-title">
+        <h3>History</h3>
+    </div>
 
-<div class="">
-    <div class='bg-secondary text-white p-1'>
-
-         <!-- On tables -->
-         <div class="table-title">
-            <h3>History</h3>
-            </div>
-            <table class="table-fill">
-            <thead>
+    <!-- Table -->
+     {%for tranfer in transfers%}
+     <table class="table-fill" style="margin-top: 30px;">
+         <thead>
             <tr>
                 <th class="text-left">Account <br/> Name</th>
                 <th class="text-left"></th>
-            {% comment %} <th class="text-left">Amount</th> {% endcomment %}
-            <th class="text-left">Account <br/> Number</th>
-
+                <th class="text-left">Account <br/> Number</th>
             </tr>
-            </thead>
-            <tbody class="table-hover">
-                <tr>
-                    {% if request.user.username == "Helenacastle" %}
+        </thead>
+        <tbody class="table-hover">
+            <!-- User Account Information -->
+            <tr>
+                {% if request.user.username == "Helenacastle" %}
                     <td class="text-left">Helena</td> 
                     <td class="text-left">Castle</td>
-            {% else %}
-                <td class="text-left">{{request.user.first_name }}</td> 
-                <td class="text-left">{{ request.user.last_name }}</td>
-            {% endif %}
-            {% comment %} <td class="text-left">$ 50,000.00</td> {% endcomment %}
-            <td class="text-left">2574872293103</td>
+                {% else %}
+                <td class="text-left">{{ request.user.first_name }}</td> 
+                    <td class="text-left">{{ request.user.last_name }}</td>
+                {% endif %}
+                <td class="text-left">{{tranfer.account_number}}</td>
             </tr>
 
+            <!-- Transaction Details -->
             <tr>
-                <td class="text-left bold">Money transferred</td>
-                <td></td>
-                <td></td>
-                {% comment %} <td class="text-left">$ 5,000.00</td> {% endcomment %}
-                
-            </tr>
-            
-            <tr>
-                <td class="text-left text-success">$ 5,000.00</td>
-                <td></td>
+                <td class="text-left bold">Money Transferred</td>
+                <td class="bold">Bank Name</td>
                 <td></td>
             </tr>
-            
+            <tr>
+                <td class="text-left text-success"> &#36;{{tranfer.amount}}</td>
+                <td>{{tranfer.bank_name}}</td>
+                <td></td>
+            </tr>
 
+            <!-- Additional Information -->
             <tr>
                 <td class="text-left bold">Date</td>
                 <td class="text-left bold">Description</td>  
                 <td></td>              
             </tr>
-            
             <tr>
-                <td class="text-left">2024-09-06 <br/> 19:30:57</td>
+                <td class="text-left">{{tranfer.date_created}}</td>
                 <td class="text-left" style="color: #2196F3;">Pending</td>
                 <td></td>
             </tr>
-            
-            
         </tbody>
     </table>
-              
-            
-    
+    {%endfor%}
 </div>
-</div>
-{%else%}
-{%endif%}
+{% endif %}
+
 {% endblock content %}
-
-

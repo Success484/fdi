@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserUpdateForm, ProfileUpdateForm, UserRegisterForm, TranferForm
+from .forms import UserRegisterForm, TranferForm
+from .models import Tranfer
 from django.contrib.auth.decorators import login_required
 # from django.shortcuts import render, redirect
 # from .forms import RegistrationForm
@@ -29,7 +30,8 @@ def Logout_Confirm(request):
 
 @login_required
 def history(request):
-    return render(request, 'main/history.html')
+    transfers = Tranfer.objects.all().order_by('-date_created')
+    return render(request, 'main/history.html', {'transfers':transfers})
 
 
 
@@ -73,3 +75,11 @@ def transfer_money(request):
         form = TranferForm()
     context = {'form': form}
     return render(request, 'main/profile.html', context)
+
+
+
+# @login_required
+# def recent_transfer(request):
+#     transfers = Tranfer.objects.all()
+#     return render(request, 'main/history.html', {'transfers':transfers})
+    

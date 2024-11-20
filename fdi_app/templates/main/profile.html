@@ -24,12 +24,11 @@
             
             </div> 
 
-            <!-- Transfer Form Dialog -->
 <div id="transfer-dialog" title="Transfer Money" style="display: none;">
     <form id="transfer-form" method="POST" action="{% url 'profile' %}" style="background-color: black; color: white; padding: 1rem; border-radius: 0.375rem;">
         {% csrf_token %}
         
-        <label for="id_bank_name" style="display: block; font-weight: bold; color: white; margin-bottom: 0.5rem;">Bank Name</label>
+        <label for="id_bank_name" style="display: block; font-weight: bold; color: white; margin-bottom: 0.5rem;">Bank Name (full name)</label>
         {{ form.bank_name }}
         <br><br>
     
@@ -53,7 +52,11 @@
 
 <!-- Confirmation Dialog -->
 <div id="confirm-dialog" title="Confirm Transfer" style="display: none;">
-    <p>Are you sure you want to transfer the money?</p>
+    <p id="confirmation-message">Are you sure you want to transfer the money?</p>
+    <div id="loading-spinner" style="display: none; text-align: center; margin-top: 10px;">
+        <div class="spinner" style="border: 8px solid rgba(0, 0, 0, 0.1); border-left-color: #007bff; border-radius: 50%; width: 100px; height: 100px; animation: spin 1s linear infinite;"></div>
+        <p style="margin-top: 10px;">Processing...</p>
+    </div>
     <button id="confirm-transfer" style="padding: 5px 10px; background-color: green; color: white; border: none; border-radius: 8px;">Confirm</button>
     <button id="cancel-transfer" style="padding: 5px 10px; background-color: red; color: white; border: none; border-radius: 8px;">Cancel</button>
 </div>

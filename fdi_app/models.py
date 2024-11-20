@@ -25,6 +25,7 @@ class Tranfer(models.Model):
     bank_name = models.CharField(max_length=100, blank=False, null=False)
     account_number = models.IntegerField(blank=False, null=False)
     amount = models.IntegerField(blank=False, null=False)
+    date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.bank_name}, {self.account_number}, {self.amount}"
