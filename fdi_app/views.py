@@ -3,8 +3,6 @@ from django.contrib import messages
 from .forms import UserRegisterForm, TranferForm
 from .models import Tranfer
 from django.contrib.auth.decorators import login_required
-# from django.shortcuts import render, redirect
-# from .forms import RegistrationForm
 
 # Create your views here.
 def HomePage(request):
@@ -27,13 +25,10 @@ def Guard(request):
 def Logout_Confirm(request):
     return render(request, 'main/logout.html')
 
-
 @login_required
 def history(request):
     transfers = Tranfer.objects.all().order_by('-date_created')
     return render(request, 'main/history.html', {'transfers':transfers})
-
-
 
 def register(request):
     if request.method == "POST":
@@ -45,7 +40,6 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'main/register.html', {'form': form})
-
 
 # @login_required
 # def profile(request):
@@ -75,8 +69,6 @@ def transfer_money(request):
         form = TranferForm()
     context = {'form': form}
     return render(request, 'main/profile.html', context)
-
-
 
 # @login_required
 # def recent_transfer(request):
